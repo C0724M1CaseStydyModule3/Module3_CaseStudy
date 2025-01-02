@@ -67,6 +67,10 @@ body{
     align-items: center;
 }
 
+.float-left{
+    float: left;
+}
+
 .m-top-70{
     margin-top: 70px;
 }
@@ -123,6 +127,10 @@ body{
     padding: 0;
 }
 
+.opa-02{
+    opacity: 0.2;
+}
+
 .container{
     padding: 0;
 }
@@ -133,7 +141,7 @@ body{
     height: 70px;
     width: 100%;
     background-color: black;
-    z-index: 1;
+    z-index: 2;
     top: 0;
 }
 
@@ -168,17 +176,27 @@ nav {
 }
 
 #content{
-    height: 700px;
-    width: 100%;
-    background-color: #ccc;
+    margin: 20px 0;
+}
+
+.cart{
+    width: 50%;
+    height: 100%;
 }
 
 .cart:hover{
     cursor: pointer;
+    background-color: #FFEE99;
+}
+
+.user{
+    width: 50%;
+    height: 100%;   
 }
 
 .user:hover{
     cursor: pointer;
+    background-color: #FFEE99;
 }
 
 #intro{
