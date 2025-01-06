@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Thanh Toán</title>
-    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
@@ -85,4 +84,109 @@
         }
     </script>
 </body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5; 
+        color: #333; 
+    }
+    
+    header {
+        background-color: #fdd835; 
+        color: #333; 
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+    
+    main {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background: #fff; 
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    
+    section {
+        margin-bottom: 2rem;
+    }
+    
+    section h2 {
+        font-size: 1.2rem;
+        color: #333;
+        border-bottom: 2px solid #fdd835;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    #cart-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    #cart-list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    form label {
+        display: block;
+        font-weight: bold;
+        margin: 1rem 0 0.5rem;
+    }
+    
+    form input {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    form button {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #fdd835; 
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    form button:hover {
+        background-color: #e6be00; 
+    }
+    
+    #payment-status {
+        text-align: center;
+    }
+    
+    #status-message {
+        font-weight: bold;
+        margin-top: 1rem;
+        color: #d32f2f; 
+    }
+    
+    /* Responsive design */
+    @media (max-width: 600px) {
+        main {
+            margin: 1rem;
+            padding: 1rem;
+        }
+    }
+
+</style>
 </html>
