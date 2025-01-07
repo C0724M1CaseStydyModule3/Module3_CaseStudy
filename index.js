@@ -76,3 +76,51 @@ function displayPhone() {
         }
     }
 }
+
+function searchProducts(keyword) {
+    const searchResults = document.getElementById('searchResults');
+    
+    // Nếu input rỗng, ẩn kết quả
+    if (!keyword.trim()) {
+        searchResults.style.display = 'none';
+        return;
+    }
+
+    keyword = keyword.toLowerCase();
+    const filteredProducts = iphoneList.filter(phone => 
+        phone.name.toLowerCase().includes(keyword)
+    );
+    
+    if (filteredProducts.length === 0) {
+        searchResults.innerHTML = '<div class="search-item">Không tìm thấy sản phẩm</div>';
+    } else {
+        searchResults.innerHTML = filteredProducts.map(phone => `
+            <div class="search-item" onclick="selectProduct('${phone.name}')">
+                <img src="${phone.imagePath}" alt="${phone.name}">
+                <div class="search-item-info">
+                    <h6>${phone.name}</h6>
+                    <p>$${phone.price}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    searchResults.style.display = 'block';
+}
+
+// Hàm xử lý khi chọn sản phẩm
+function selectProduct(productName) {
+    const input = document.querySelector('.input-group input');
+    input.value = productName;
+    document.getElementById('searchResults').style.display = 'none';
+}
+
+// Thêm sự kiện click outside để đóng dropdown
+document.addEventListener('click', function(e) {
+    const searchResults = document.getElementById('searchResults');
+    const inputGroup = document.querySelector('.input-group');
+    
+    if (!inputGroup.contains(e.target)) {
+        searchResults.style.display = 'none';
+    }
+});
