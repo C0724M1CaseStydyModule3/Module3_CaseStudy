@@ -10,7 +10,7 @@
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <!-- Link file CSS -->
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 </head>
 <body>
@@ -40,7 +40,7 @@
       <p class="font-primary clear-p m-left-5">Giỏ hàng</p>
     </div>
     <div class="flex-center user float-left">
-      <a href="login/login.jsp">
+      <a href="adminLogin">
         <i class="fa-solid fa-circle-user font-primary"></i>
         <p class="font-primary clear-p m-left-5">Đăng nhập
         </p>
@@ -227,6 +227,6 @@
 >>>>>>> f931867209ad0277e855f14e4266995ae26bae7c
 
 <!-- Link file javascript -->
-<script src="./index.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
