@@ -183,7 +183,6 @@ nav {
     justify-content: center;
     align-items: center;
 }
-}
 
 #content{
     margin: 20px 0;
@@ -288,4 +287,45 @@ nav {
 .search-item-info p {
     margin: 0;
     color: #666;
+}
+
+/*danh sách giỏ hàng*/
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.cart-item {
+    display: flex;
+    margin: 10px 0;
+}
+
+.cart-item img {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.cart-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+#cartList {
+    margin-top: 20px;
 }

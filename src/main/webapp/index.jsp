@@ -37,7 +37,26 @@
   <div class="ultility">
     <div class="flex-center cart float-left">
       <i class="fa-solid fa-cart-shopping font-primary"></i>
-      <p class="font-primary clear-p m-left-5">Giỏ hàng</p>
+      <p class="font-primary clear-p m-left-5">
+
+      <h1>Giỏ hàng</h1>
+      <div id="cartList">
+        <c:choose>
+          <c:when test="${cart.empty}">
+            <p>Giỏ hàng của bạn đang trống.</p>
+          </c:when>
+          <c:otherwise>
+            <c:forEach var="item" items="${cart}">
+              <div class="cart-item">
+                <p><strong>${item.product.name}</strong></p>
+                <p>Giá: $${item.product.price}</p>
+                <p>Số lượng: ${item.quantity}</p>
+              </div>
+            </c:forEach>
+          </c:otherwise>
+        </c:choose>
+      </div>
+      </p>
     </div>
     <div class="flex-center user float-left">
       <a href="adminLogin">
@@ -81,12 +100,25 @@
   </div>
 
   <!-- Phone List -->
-  <div id="phoneList" class="flex-center">
-
+  <div id="phoneList" >
+  <c:forEach var="product" items="${productList}">
+    <div class="card">
+      <img src="${product.imagePath}" class="card-img-top" alt="${product.name}">
+      <div class="card-body">
+        <h5 class="card-title">${product.name}</h5>
+        <p class="card-text">${product.description}</p>
+        <p class="card-text"><strong>Price: $${product.price}</strong></p>
+      </div>
+      <form action="cart" method="post">
+        <input type="hidden" name="productName" value="${product.name}">
+        <input type="hidden" name="price" value="${product.price}">
+        <input type="hidden" name="imagePath" value="${product.imagePath}">
+        <input type="hidden" name="description" value="${product.description}">
+        <button type="submit" class="btn btn-primary">Mua hàng</button>
+      </form>
+    </div>
+  </c:forEach>
   </div>
-
-</div>
-
 <!-- Introduction -->
     <div id="intro">
       <div class="row">
