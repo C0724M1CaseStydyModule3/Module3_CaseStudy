@@ -2,7 +2,7 @@ package com.example.module_3.controller;
 
 import com.example.module_3.entity.CartItem;
 import com.example.module_3.entity.Product;
-import com.example.module_3.repository.ProductService;
+import com.example.module_3.repository.ProductRepository;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,11 +15,11 @@ import java.util.List;
 
 public class CartController  extends HttpServlet {
     private List<CartItem> cart = new ArrayList<>();
-    private ProductService productService = new ProductService();
+    private ProductRepository Productrepository= new ProductRepository();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Product> products = productService.getAllProducts();
+        List<Product> products =Productrepository .getAllProducts();
         req.setAttribute("products", products);
         req.setAttribute("cart", cart);
         RequestDispatcher dispatcher = req.getRequestDispatcher("view/index.jsp");
@@ -29,7 +29,7 @@ public class CartController  extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int productId = Integer.parseInt(req.getParameter("productId"));
-        Product product = productService.getAllProducts()
+        Product product = Productrepository.getAllProducts()
                 .stream()
                 .filter(p -> p.getId() == productId)
                 .findFirst()

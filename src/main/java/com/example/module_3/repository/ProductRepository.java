@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductService {
+public class ProductRepository {
 
         private static final String DB_URL = "jdbc:mysql://localhost:3306/phone?useSSL=false";
         private static final String USER = "root";

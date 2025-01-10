@@ -1,77 +1,75 @@
 const iphoneList = [
     {
-        imagePath: './src/image/iphone13.webp',
+        imagePath: 'path/to/image1.jpg',
         name: 'iPhone 13',
         price: 799,
         description: 'Mô tả về iPhone 13'
     },
     {
-        imagePath: './src/image/iphone13.webp',
+        imagePath: 'path/to/image2.jpg',
         name: 'iPhone 13 Pro',
         price: 999,
         description: 'Mô tả về iPhone 13 Pro'
     },
     {
-        imagePath: './src/image/iphone13.webp',
+        imagePath: 'path/to/image3.jpg',
         name: 'iPhone 12',
         price: 699,
         description: 'Mô tả về iPhone 12'
     },
     {
-        imagePath: './src/image/iphone13.webp',
+        imagePath: 'path/to/image4.jpg',
         name: 'iPhone 11',
         price: 599,
         description: 'Mô tả về iPhone 11'
     },
     {
-        imagePath: './src/image/iphone13.webp',
+        imagePath: 'path/to/image5.jpg',
         name: 'iPhone SE',
         price: 399,
         description: 'Mô tả về iPhone SE'
     },
     {
-        imagePath: './src/image/iphone13.webp',
+        imagePath: 'path/to/image6.jpg',
         name: 'iPhone 13 Mini',
         price: 699,
         description: 'Mô tả về iPhone 13 Mini'
     },
     {
-        imagePath: './src/image/iphone13.webp',
+        imagePath: 'path/to/image7.jpg',
         name: 'iPhone 14',
         price: 899,
         description: 'Mô tả về iPhone 14'
     },
     {
-        imagePath: './src/image/iphone13.webp',
+        imagePath: 'path/to/image8.jpg',
         name: 'iPhone 14 Pro',
         price: 1099,
         description: 'Mô tả về iPhone 14 Pro'
     },
     {
-        imagePath: './src/image/iphone13.webp',
+        imagePath: 'path/to/image9.jpg',
         name: 'iPhone 14 Pro Max',
         price: 1199,
         description: 'Mô tả về iPhone 14 Pro Max'
     }
 ];
 
-
-
 var phoneType = 'iphone';
 
 function displayPhone() {
     switch (phoneType) {
         case 'iphone': {
+            console.log(phoneType)
             let divPhone = document.getElementById('phoneList');
-            divPhone.innerHTML = iphoneList.map(item => `
-                <div class="card" style="width: 31%; float:left; margin:10px">
-                    <img src="${item.imagePath}" class="card-img-top" alt="${item.name}">
+            divPhone.innerHTML = iphoneList.map(phone => `
+                <div class="card" style="width: 18rem;">
+                    <img src="${phone.imagePath}" class="card-img-top" alt="${phone.name}">
                     <div class="card-body">
-                        <h5 class="card-title">${item.name}</h5>
-                        <p class="card-text">${item.description}</p>
-                        <p class="card-text"><strong>Price: $${item.price}</strong></p>
+                        <h5 class="card-title">${phone.name}</h5>
+                        <p class="card-text">${phone.description}</p>
+                        <p class="card-text"><strong>Price: $${phone.price}</strong></p>
                     </div>
-                 <button onclick ="Themvaogiohang(this)" class="btn btn-primary">Mua hàng</button>
                 </div>
             `).join('');
             break;
@@ -79,43 +77,6 @@ function displayPhone() {
     }
 }
 
-
-
-let cart = []; // Mảng lưu trữ giỏ hàng
-
-// Hàm thêm sản phẩm vào giỏ hàng
-function Themvaogiohang(button) {
-    const productName = button.parentElement.querySelector('.card-title').textContent;
-    const productPrice = parseFloat(button.parentElement.querySelector('.card-text').textContent.replace('Price: $', ''));
-    const productImage = button.parentElement.querySelector('.card-img-top').src;
-
-    const product = iphoneList.find(item => item.name === productName); // Tìm sản phẩm trong danh sách
-
-    if (product) {
-        cart.push({ ...product, quantity: 1 }); // Thêm sản phẩm vào giỏ hàng
-    }
-
-    renderCart(); // Cập nhật giỏ hàng
-}
-
-// Hàm hiển thị giỏ hàng
-function renderCart() {
-    const cartList = document.getElementById('cartList');
-    if (cart.length === 0) {
-        cartList.innerHTML = "<p>Giỏ hàng của bạn đang trống.</p>";
-    } else {
-        cartList.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <img src="${item.imagePath}" alt="${item.name}" class="cart-item-img">
-                <div class="cart-item-info">
-                    <p><strong>${item.name}</strong></p>
-                    <p>Giá: $${item.price}</p>
-                    <p>Số lượng: ${item.quantity}</p>
-                </div>
-            </div>
-        `).join('');
-    }
-}
 function searchProducts(keyword) {
     const searchResults = document.getElementById('searchResults');
     
@@ -163,4 +124,3 @@ document.addEventListener('click', function(e) {
         searchResults.style.display = 'none';
     }
 });
-displayPhone();
