@@ -166,13 +166,14 @@
 <body class="bg-white text-secondary">
 <header id="header" class="bg-primary flex-center">
     <div class="logo flex-center">
-        <img src="webapp/image/Logo Thế Giới Di Động - MWG - B-H.png" alt="Logo">
+        <a href="./">
+            <img src="./src/image/Logo Thế Giới Di Động - MWG - B-H.png" alt="Logo">
+        </a>
     </div>
     <nav class="flex-center">
-        <a href class="clear-a font-primary">Trang Chủ</a>
-        <a href class="clear-a font-primary">Iphone</a>
-        <a href class="clear-a font-primary">Samsung</a>
-        <a href class="clear-a font-primary">Vivo</a>
+        <a href="phone" class="clear-a font-primary">Iphone</a>
+        <a href="#" class="clear-a font-primary">Samsung</a>
+        <a href="#" class="clear-a font-primary">Vivo</a>
     </nav>
     <div class="ultility">
         <div class="flex-center cart float-left">
@@ -189,10 +190,10 @@
     <div class="row justify-content-center">
         </header>
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" style="margin-top:100px">
                 <div class="col-md-6 p-5 rounded bg-hover-primary shadow mt-5">
                     <h3 class="text-center text-secondary mb-4">Đăng Nhập Admin</h3>
-                    <form action="/adminLogin" method="post">
+                    <form action="/adminLogin" method="POST">
                         <div class="form-group">
                             <label for="phone">Nhập số điện thoại</label>
                             <input type="text" id="phone" name="phone"
@@ -203,8 +204,12 @@
                             <input type="password" id="password" name="password"
                                    class="form-control" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
-                        <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+                        <div style="width: 100%; display: flex; justify-content: space-around">
+
+                            <button type="submit" class="btn btn-primary btn-block" style="width: 30%; margin: auto">Đăng nhập</button>
+
+                            <button type="submit" class="btn btn-primary btn-block" style="width: 30%; margin:auto">Đăng ký</button>
+                        </div>
                         <p id="error" class="text-danger mt-2 text-center" style="display: none">
                             <c:if test="${not empty error}">
                                 %{error}
@@ -216,7 +221,7 @@
         </div>
     </div>
 </div>
-<footer id="footer" class="bg-primary">
+<footer id="footer" class="bg-primary" style="position:absolute; bottom:0; left:0; right:0">
     <div class="row">
         <div class="col-12 " style="text-align: left;">
             <h5>Tổng đài hỗ trợ</h5>

@@ -11,15 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
-
 @WebServlet(name = "AdminAccount", urlPatterns = "/adminLogin")
 public class AdminAccountController extends HttpServlet {
     private static AccountService accountService = new AccountService();
-    private static String jdbcURL = "jdbc:mysql://localhost:3306/case_study?useSSL=false";
+    private static String jdbcURL = "jdbc:mysql://localhost:3306/casestudymodule3?useSSL=true";
     private static String jdbcUsername = "root";
-    private static String jdbcPassword = "11041998";
+    private static String jdbcPassword = "D@ihoang123";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,7 +31,7 @@ public class AdminAccountController extends HttpServlet {
         int phone = Integer.parseInt(req.getParameter("phone"));
         String password = req.getParameter("password");
         try (Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword)){
-                String sql = "select * from adminaccount where phone = ? and password = ?";
+            String sql = "select * from adminaccount where phone = ? and password = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, phone);
             preparedStatement.setString(2, password);

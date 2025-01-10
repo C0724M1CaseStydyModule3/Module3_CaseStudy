@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -30,9 +31,9 @@
       <div id="searchResults" class="search-results"></div>
     </div>
 
-    <a href="phone" class="clear-a font-primary">Iphone</a>
-    <a href="#" class="clear-a font-primary">Samsung</a>
-    <a href="#" class="clear-a font-primary">Vivo</a>
+    <a href class="clear-a font-primary">Iphone</a>
+    <a href class="clear-a font-primary">Samsung</a>
+    <a href class="clear-a font-primary">Vivo</a>
   </nav>
   <div class="ultility">
     <div class="flex-center cart float-left">
@@ -79,6 +80,21 @@
       <span class="sr-only">Next</span>
     </button>
   </div>
+
+
+  <c:forEach items="${phones}" var="phone">
+    <div class="card" style="">
+      <img src="../src/image/iphone13.png" class="card-img-top" alt="Image of ${phone.phoneName}" style="width: 50px">
+      <h5 class="card-title">${phone.phoneName}</h5>
+      <p class="card-text">${phone.description}</p>
+      <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+    </div>
+  </c:forEach>
+
+  <c:forEach items="${phones}" var="phone" varStatus="temp">
+ ${phone}
+  </c:forEach>
+
 
   <div id="intro">
     <div class="row">

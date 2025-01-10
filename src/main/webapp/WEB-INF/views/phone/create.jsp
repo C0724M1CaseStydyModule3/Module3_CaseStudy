@@ -265,7 +265,9 @@
 <body class="bg-white text-secondary">
 <header id="header" class="bg-primary flex-center">
     <div class="logo flex-center">
-        <img src="/webapp/image/Logo Thế Giới Di Động - MWG - B-H.png" alt="Logo">
+        <a href="./">
+            <img src="./src/image/Logo Thế Giới Di Động - MWG - B-H.png" alt="Logo">
+        </a>
     </div>
     <nav class="flex-center">
         <a href class="clear-a font-primary">Trang Chủ</a>

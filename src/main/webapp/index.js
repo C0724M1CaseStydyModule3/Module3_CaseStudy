@@ -1,54 +1,54 @@
 const iphoneList = [
     {
-        imagePath: 'path/to/image1.jpg',
+        imagePath: './src/image/iphone13.png',
         name: 'iPhone 13',
         price: 799,
         description: 'Mô tả về iPhone 13'
     },
     {
-        imagePath: 'path/to/image2.jpg',
+        imagePath: './src/image/iphone13.png',
         name: 'iPhone 13 Pro',
         price: 999,
         description: 'Mô tả về iPhone 13 Pro'
     },
     {
-        imagePath: 'path/to/image3.jpg',
+        imagePath: './src/image/iphone13.png',
         name: 'iPhone 12',
         price: 699,
         description: 'Mô tả về iPhone 12'
     },
     {
-        imagePath: 'path/to/image4.jpg',
+        imagePath: './src/image/iphone13.png',
         name: 'iPhone 11',
         price: 599,
         description: 'Mô tả về iPhone 11'
     },
     {
-        imagePath: 'path/to/image5.jpg',
+        imagePath: './src/image/iphone13.png',
         name: 'iPhone SE',
         price: 399,
         description: 'Mô tả về iPhone SE'
     },
     {
-        imagePath: 'path/to/image6.jpg',
+        imagePath: './src/image/iphone13.png',
         name: 'iPhone 13 Mini',
         price: 699,
         description: 'Mô tả về iPhone 13 Mini'
     },
     {
-        imagePath: 'path/to/image7.jpg',
+        imagePath: './src/image/iphone13.png',
         name: 'iPhone 14',
         price: 899,
         description: 'Mô tả về iPhone 14'
     },
     {
-        imagePath: 'path/to/image8.jpg',
+        imagePath: './src/image/iphone13.png',
         name: 'iPhone 14 Pro',
         price: 1099,
         description: 'Mô tả về iPhone 14 Pro'
     },
     {
-        imagePath: 'path/to/image9.jpg',
+        imagePath: './src/image/iphone13.png',
         name: 'iPhone 14 Pro Max',
         price: 1199,
         description: 'Mô tả về iPhone 14 Pro Max'
@@ -60,7 +60,6 @@ var phoneType = 'iphone';
 function displayPhone() {
     switch (phoneType) {
         case 'iphone': {
-            console.log(phoneType)
             let divPhone = document.getElementById('phoneList');
             divPhone.innerHTML = iphoneList.map(phone => `
                 <div class="card" style="width: 18rem;">
