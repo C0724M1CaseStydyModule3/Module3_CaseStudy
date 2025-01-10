@@ -10,7 +10,7 @@ public class ProductRepository {
 
         private static final String DB_URL = "jdbc:mysql://localhost:3306/phone?useSSL=false";
         private static final String USER = "root";
-        private static final String PASSWORD = "2004";
+        private static final String PASSWORD = "D@ihoang123";
 
         public List<Product> getAllProducts() {
             List<Product> products = new ArrayList<>();

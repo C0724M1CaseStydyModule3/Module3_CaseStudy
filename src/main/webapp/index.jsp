@@ -41,8 +41,10 @@
 <%--    </div>--%>
 
     <div class="flex-center user float-left">
-        <i class="fa-solid fa-cart-shopping font-primary"></i>
-        <p class="font-primary clear-p m-left-5"><G></G>iỏ hàng</p>
+        <a href="checkout">
+          <i class="fa-solid fa-cart-shopping font-primary"></i>
+          <p class="font-primary clear-p m-left-5">Giỏ hàng</p>
+        </a>
     </div>
 
     <div class="flex-center user float-left">
