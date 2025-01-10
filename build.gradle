@@ -35,6 +35,8 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation 'com.google.code.gson:gson:2.8.9' // Thư viện JSON
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13' // HTTP client để gửi request
 }
 
 test {
