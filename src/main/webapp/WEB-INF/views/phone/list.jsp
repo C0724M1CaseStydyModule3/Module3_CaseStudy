@@ -152,10 +152,11 @@
 <body class="bg-white text-secondary">
 <header id="header" class="bg-primary flex-center">
     <div class="logo flex-center">
-        <img src="/webapp/image/Logo Thế Giới Di Động - MWG - B-H.png" alt="Logo">
+        <a href="./">
+            <img src="./src/image/Logo Thế Giới Di Động - MWG - B-H.png" alt="Logo">
+        </a>
     </div>
     <nav class="flex-center">
-        <a href class="clear-a font-primary">Trang Chủ</a>
         <a href class="clear-a font-primary">Iphone</a>
         <a href class="clear-a font-primary">Samsung</a>
         <a href class="clear-a font-primary">Vivo</a>
@@ -173,7 +174,6 @@
             <h4 class="text-center">Danh Sách Điện Thoại</h4>
         </div>
         <div class="card-body">
-            <button class="btn btn-primary" onclick="window.location.href='/phone?action=create'">Thêm mới</button>
             <table class="table table-hover bg-white text-secondary">
                 <thead>
                 <tr>
@@ -192,7 +192,7 @@
                     <tr>
                         <td style="text-align: center">${temp.count}</td>
                         <td style="text-align: center">${phone.phoneID}</td>
-                        <td style="text-align: center">${phone.phoneName}</td>
+                        <td style="">${phone.phoneName}</td>
                         <td style="text-align: center">${phone.phoneBrand}</td>
                         <td style="text-align: center">${phone.description}</td>
                         <td style="text-align: center">${phone.price}</td>

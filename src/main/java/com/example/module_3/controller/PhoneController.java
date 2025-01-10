@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "PhoneController", urlPatterns = "/phone")
+//@WebServlet(name = "PhoneController", urlPatterns = "/home")
 public class PhoneController extends HttpServlet {
     private final PhoneService phoneService = new PhoneService();
 
@@ -35,6 +36,7 @@ public class PhoneController extends HttpServlet {
                 List<Phone> phones = phoneService.getAll();
                 req.setAttribute("phones", phones);
                 req.getRequestDispatcher("/WEB-INF/views/phone/list.jsp").forward(req, resp);
+//                req.getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
         }
     }
 

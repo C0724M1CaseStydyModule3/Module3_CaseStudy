@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -30,25 +31,25 @@
       <div id="searchResults" class="search-results"></div>
     </div>
 
-    <a href="phone" class="clear-a font-primary">Iphone</a>
-    <a href="#" class="clear-a font-primary">Samsung</a>
-    <a href="#" class="clear-a font-primary">Vivo</a>
+    <a href class="clear-a font-primary">Iphone</a>
+    <a href class="clear-a font-primary">Samsung</a>
+    <a href class="clear-a font-primary">Vivo</a>
   </nav>
   <div class="ultility">
-<%--    <div class="flex-center cart float-left">--%>
-<%--      <i class="fa-solid fa-cart-shopping font-primary"></i>--%>
-<%--      <p class="font-primary clear-p m-left-5">Giỏ hàng</p>--%>
-<%--    </div>--%>
-
-    <div class="flex-center user float-left">
-        <i class="fa-solid fa-cart-shopping font-primary"></i>
-        <p class="font-primary clear-p m-left-5"><G></G>iỏ hàng</p>
+    <div id="cart" class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="cartDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Giỏ hàng
+        </button>
+        <div class="dropdown-menu" aria-labelledby="cartDropdown" id="cartList">
+            <!-- Giỏ hàng sẽ được hiển thị ở đây -->
+        </div>
+        <button class="btn btn-success" onclick="checkout()">Thanh toán</button>
     </div>
-
     <div class="flex-center user float-left">
       <a href="adminLogin">
         <i class="fa-solid fa-circle-user font-primary"></i>
-        <p class="font-primary clear-p m-left-5">Đăng nhập</p>
+        <p class="font-primary clear-p m-left-5">Đăng nhập
+        </p>
       </a>
     </div>
   </div>
@@ -85,8 +86,19 @@
     </button>
   </div>
 
-    <div id="phoneList"></div>
 
+  <c:forEach items="${phones}" var="phone">
+    <div class="card">
+      <img src="../src/image/iphone13.png" class="card-img-top" alt="Image of ${phone.phoneName}" style="width: 50px">
+      <h5 class="card-title">${phone.phoneName}</h5>
+      <p class="card-text">${phone.description}</p>
+      <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+    </div>
+  </c:forEach>
+
+  <c:forEach items="${phones}" var="phone" varStatus="temp">
+ ${phone}
+  </c:forEach>
 
 
   <div id="intro">
@@ -100,7 +112,7 @@
       <!-- Intro's text -->
       <div class="col-10 p-left-0 m-0">
         <p class="clear-p">
-          Công ty TNHH Thế Giới Di Động (Mobile World Co. Ltd) thành lập 
+          Công ty TNHH Thế Giới Di Động (Mobile World Co. Ltd) thành lập vào
           tháng 03/2004 bởi 5 thành viên đồng sáng lập là Trần Lê Quân,
           Nguyễn Đức Tài, Đinh Anh Huân, Điêu Chính Hải Triều và Trần Huy
           Thanh Tùng, lĩnh vực hoạt động chính của công ty bao gồm: mua bán
@@ -222,6 +234,6 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
 
 <!-- Link file javascript -->
-<script src="./index.js"></script>
+<script src="index.js"></script>
 </body>
 </html>

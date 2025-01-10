@@ -1,75 +1,84 @@
 const iphoneList = [
     {
-        imagePath: 'path/to/image1.jpg',
+        imagePath: './src/image/iphone14.png',
         name: 'iPhone 13',
         price: 799,
+        quantity: 2,
         description: 'Mô tả về iPhone 13'
     },
     {
-        imagePath: 'path/to/image2.jpg',
+        imagePath: './src/image/iphone14.png',
         name: 'iPhone 13 Pro',
         price: 999,
         description: 'Mô tả về iPhone 13 Pro'
     },
     {
-        imagePath: 'path/to/image3.jpg',
+        imagePath: './src/image/iphone14.png',
         name: 'iPhone 12',
         price: 699,
         description: 'Mô tả về iPhone 12'
     },
     {
-        imagePath: 'path/to/image4.jpg',
+        imagePath: './src/image/iphone14.png',
         name: 'iPhone 11',
         price: 599,
         description: 'Mô tả về iPhone 11'
     },
     {
-        imagePath: 'path/to/image5.jpg',
+        imagePath: './src/image/iphone14.png',
         name: 'iPhone SE',
         price: 399,
         description: 'Mô tả về iPhone SE'
     },
     {
-        imagePath: 'path/to/image6.jpg',
+        imagePath: './src/image/iphone14.png',
         name: 'iPhone 13 Mini',
         price: 699,
         description: 'Mô tả về iPhone 13 Mini'
     },
     {
-        imagePath: 'path/to/image7.jpg',
+        imagePath: './src/image/iphone14.png',
         name: 'iPhone 14',
         price: 899,
         description: 'Mô tả về iPhone 14'
     },
     {
-        imagePath: 'path/to/image8.jpg',
+        imagePath: './src/image/iphone14.png',
         name: 'iPhone 14 Pro',
         price: 1099,
         description: 'Mô tả về iPhone 14 Pro'
     },
     {
-        imagePath: 'path/to/image9.jpg',
+        imagePath: './src/image/iphone14.png',
         name: 'iPhone 14 Pro Max',
         price: 1199,
         description: 'Mô tả về iPhone 14 Pro Max'
     }
 ];
 
+var cartList = [{
+    imagePath: './src/image/iphone14.png',
+    name: 'iPhone 13',
+    price: 799,
+    quantity: 2,
+    description: 'Mô tả về iPhone 13'
+}];
+
 var phoneType = 'iphone';
 
 function displayPhone() {
     switch (phoneType) {
         case 'iphone': {
-            console.log(phoneType)
             let divPhone = document.getElementById('phoneList');
-            divPhone.innerHTML = iphoneList.map(phone => `
-                <div class="card" style="width: 18rem;">
-                    <img src="${phone.imagePath}" class="card-img-top" alt="${phone.name}">
+            divPhone.innerHTML = iphoneList.map(item => `
+                <div class="card" style="width: 31%; float:left; margin:10px">
+                    <img src="${item.imagePath}" class="card-img-top" alt="${item.name}">
                     <div class="card-body">
-                        <h5 class="card-title">${phone.name}</h5>
-                        <p class="card-text">${phone.description}</p>
-                        <p class="card-text"><strong>Price: $${phone.price}</strong></p>
+                        <h5 class="card-title">${item.name}</h5>
+                        <p class="card-text">${item.description}</p>
+                        <p class="card-text"><strong>Price: $${item.price}</strong></p>
                     </div>
+                 <button onclick="addToCart('${item.name}', ${item.price}, '${item.description}')" class="btn btn-primary">Mua hàng</button>
                 </div>
             `).join('');
             break;
@@ -124,3 +133,51 @@ document.addEventListener('click', function(e) {
         searchResults.style.display = 'none';
     }
 });
+
+// Hàm thêm sản phẩm vào giỏ hàng
+function addToCart(name, price, description) {
+    const existingProduct = cartList.find(item => item.name === name);
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cartList.push({imagePath:"./src/image/iphone14.png", name:name, price:price, description:description, quantity: 1 });
+    }
+    displayCart();
+}
+
+// Hàm hiển thị giỏ hàng
+function displayCart() {
+    const cartList = document.getElementById('cartList');
+    cartList.innerHTML = cartList.map(item => `
+        <div class="cart-item">
+            <img src="${item.imagePath}" alt="${item.name}">
+            <div>${item.name}</div>
+            <div>$${item.price} x ${item.quantity}</div>
+            <button onclick="removeFromCart('${item.name}')">-</button>
+            <button onclick="increaseQuantity('${item.name}')">+</button>
+        </div>
+    `).join('');
+}
+
+// Hàm tăng số lượng sản phẩm
+function increaseQuantity(productName) {
+    const product = cartList.find(item => item.name === productName);
+    if (product) {
+        product.quantity++;
+        displayCart();
+    }
+}
+
+// Hàm giảm số lượng sản phẩm
+function removeFromCart(productName) {
+    const productIndex = cartList.findIndex(item => item.name === productName);
+    if (productIndex > -1) {
+        cart[productIndex].quantity--;
+        if (cart[productIndex].quantity === 0) {
+            cartList.splice(productIndex, 1);
+        }
+        displayCart();
+    }
+}
+
+displayPhone();
