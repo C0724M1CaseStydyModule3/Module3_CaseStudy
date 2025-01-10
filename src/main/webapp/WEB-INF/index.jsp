@@ -36,9 +36,14 @@
     <a href class="clear-a font-primary">Vivo</a>
   </nav>
   <div class="ultility">
-    <div class="flex-center cart float-left">
-      <i class="fa-solid fa-cart-shopping font-primary"></i>
-      <p class="font-primary clear-p m-left-5">Giỏ hàng</p>
+    <div id="cart" class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="cartDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Giỏ hàng
+        </button>
+        <div class="dropdown-menu" aria-labelledby="cartDropdown" id="cartList">
+            <!-- Giỏ hàng sẽ được hiển thị ở đây -->
+        </div>
+        <button class="btn btn-success" onclick="checkout()">Thanh toán</button>
     </div>
     <div class="flex-center user float-left">
       <a href="adminLogin">
@@ -83,7 +88,7 @@
 
 
   <c:forEach items="${phones}" var="phone">
-    <div class="card" style="">
+    <div class="card">
       <img src="../src/image/iphone13.png" class="card-img-top" alt="Image of ${phone.phoneName}" style="width: 50px">
       <h5 class="card-title">${phone.phoneName}</h5>
       <p class="card-text">${phone.description}</p>

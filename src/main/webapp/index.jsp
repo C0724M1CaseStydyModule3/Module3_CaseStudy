@@ -35,15 +35,22 @@
     <a href="#" class="clear-a font-primary">Vivo</a>
   </nav>
   <div class="ultility">
-    <div class="flex-center cart float-left">
-      <i class="fa-solid fa-cart-shopping font-primary"></i>
-      <p class="font-primary clear-p m-left-5">Giỏ hàng</p>
+<%--    <div class="flex-center cart float-left">--%>
+<%--      <i class="fa-solid fa-cart-shopping font-primary"></i>--%>
+<%--      <p class="font-primary clear-p m-left-5">Giỏ hàng</p>--%>
+<%--    </div>--%>
+
+    <div class="flex-center user float-left">
+      <a href="checkout">
+        <i class="fa-solid fa-cart-shopping font-primary"></i>
+        <p class="font-primary clear-p m-left-5">Giỏ hàng</p>
+      </a>
     </div>
+
     <div class="flex-center user float-left">
       <a href="adminLogin">
         <i class="fa-solid fa-circle-user font-primary"></i>
-        <p class="font-primary clear-p m-left-5">Đăng nhập
-        </p>
+        <p class="font-primary clear-p m-left-5">Đăng nhập</p>
       </a>
     </div>
   </div>
@@ -80,6 +87,10 @@
     </button>
   </div>
 
+  <div id="phoneList">
+
+  </div>
+
   <div id="intro">
     <div class="row">
 
@@ -91,7 +102,7 @@
       <!-- Intro's text -->
       <div class="col-10 p-left-0 m-0">
         <p class="clear-p">
-          Công ty TNHH Thế Giới Di Động (Mobile World Co. Ltd) thành lập vào
+          Công ty TNHH Thế Giới Di Động (Mobile World Co. Ltd) thành lập 
           tháng 03/2004 bởi 5 thành viên đồng sáng lập là Trần Lê Quân,
           Nguyễn Đức Tài, Đinh Anh Huân, Điêu Chính Hải Triều và Trần Huy
           Thanh Tùng, lĩnh vực hoạt động chính của công ty bao gồm: mua bán
@@ -213,6 +224,6 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
 
 <!-- Link file javascript -->
-<script src="index.js"></script>
+<script src="./index.js"></script>
 </body>
 </html>

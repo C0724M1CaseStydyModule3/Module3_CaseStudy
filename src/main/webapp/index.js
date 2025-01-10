@@ -57,20 +57,24 @@ const iphoneList = [
 
 var phoneType = 'iphone';
 
+let cart = [];
+
 function displayPhone() {
     switch (phoneType) {
         case 'iphone': {
             let divPhone = document.getElementById('phoneList');
-            divPhone.innerHTML = iphoneList.map(phone => `
-                <div class="card" style="width: 18rem;">
-                    <img src="${phone.imagePath}" class="card-img-top" alt="${phone.name}">
-                    <div class="card-body">
-                        <h5 class="card-title">${phone.name}</h5>
-                        <p class="card-text">${phone.description}</p>
-                        <p class="card-text"><strong>Price: $${phone.price}</strong></p>
+            divPhone.innerHTML = iphoneList.map(phone =>
+                `
+                    <div class="card" style="width: 18rem;">
+                        <img src="${phone.imagePath}" class="card-img-top" alt="${phone.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${phone.name}</h5>
+                            <p class="card-text">${phone.description}</p>
+                            <p class="card-text"><strong>Price: $${phone.price}</strong></p>
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `
+            ).join('');
             break;
         }
     }
@@ -123,3 +127,49 @@ document.addEventListener('click', function(e) {
         searchResults.style.display = 'none';
     }
 });
+
+// Hàm thêm sản phẩm vào giỏ hàng
+function addToCart(phone) {
+    const existingProduct = cart.find(item => item.name === phone.name);
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({ ...phone, quantity: 1 });
+    }
+    displayCart();
+}
+
+// Hàm hiển thị giỏ hàng
+function displayCart() {
+    const cartList = document.getElementById('cartList');
+    cartList.innerHTML = cart.map(item => `
+        <div class="cart-item">
+            <img src="${item.imagePath}" alt="${item.name}">
+            <div>${item.name}</div>
+            <div>$${item.price} x ${item.quantity}</div>
+            <button onclick="removeFromCart('${item.name}')">-</button>
+            <button onclick="increaseQuantity('${item.name}')">+</button>
+        </div>
+    `).join('');
+}
+
+// Hàm tăng số lượng sản phẩm
+function increaseQuantity(productName) {
+    const product = cart.find(item => item.name === productName);
+    if (product) {
+        product.quantity++;
+        displayCart();
+    }
+}
+
+// Hàm giảm số lượng sản phẩm
+function removeFromCart(productName) {
+    const productIndex = cart.findIndex(item => item.name === productName);
+    if (productIndex > -1) {
+        cart[productIndex].quantity--;
+        if (cart[productIndex].quantity === 0) {
+            cart.splice(productIndex, 1);
+        }
+        displayCart();
+    }
+}
