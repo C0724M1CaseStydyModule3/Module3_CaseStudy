@@ -1,0 +1,4 @@
+vnpay.tmnCode= DH3OC576
+vnpay.hashSecret=RDW05H0AKY4OGQL4VSONUVNGIX91NUSY
+vnpay.url=https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+vnpay.returnUrl=http://localhost:8080/vnpay_return
